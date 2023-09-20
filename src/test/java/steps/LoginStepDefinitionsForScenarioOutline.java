@@ -13,19 +13,20 @@ public class LoginStepDefinitionsForScenarioOutline {
     private WebDriver driver;
 
     @Given("^User is on Home Page$")
-    public void userIsOnHomePage() throws Throwable {
+    public void userIsOnHomePage() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         driver.get("https://www.saucedemo.com/");
     }
 
     @When("^User navigate to Login Page$")
-    public void userNavigateToLoginPage() throws Throwable {
+    public void userNavigateToLoginPage() {
         System.out.println("userNavigateToLoginPage");
+        System.out.println("User is on login page");
     }
 
     @And("^User enters \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void userEntersAnd(String username, String password) throws Throwable {
+    public void userEntersAnd(String username, String password)  {
         System.out.println("Username is: " + username + " password is: " + password);
         driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(username);
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password);
@@ -36,6 +37,6 @@ public class LoginStepDefinitionsForScenarioOutline {
     public void messageDisplayedLoginSuccessfully() throws Throwable{
         System.out.println("Successfully Logged In");
         Thread.sleep(20000);
-        driver.close();
+      //  driver.close();
     }
 }
